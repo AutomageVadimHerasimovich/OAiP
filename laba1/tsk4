@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() {
+    int sem;
+    printf("Input Sem number:\n");
+    scanf("%d", &sem);
+    if (sem == 1)
+    {
+        printf("In Sem 1 subjects are: IT and Foreign Language.");
+    }
+    if (sem == 2)
+    {
+        printf("In Sem 2 subjects are: IT and Foreign Language.");
+    }
+    if (sem == 3)
+    {
+        printf("In Sem 3 subjects are: Math, Culture and Foreign Language.");
+    }
+    if (sem == 4)
+    {
+        printf("In Sem 4 subjects are: Math, Culture and Foreign Language.");
+    }
+    if (sem > 4)
+    {
+        printf("Please, use numbers from 1 to 4.");
+    }
+    if (sem <= 0)
+    {
+        printf("Please, use numbers from 1 to 4.");
+    }
+    return 0;
+}
