@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    float R, lnghtcrcl, sqrecrcl;
+    printf("Input R of circle:\n");
+    scanf("%f", &R);
+    if (R < 0)
+    {
+        printf("Radius can not be negative, please, input common number.");
+    }
+    else
+    {
+        lnghtcrcl = 2 * 3.14 * R;
+        sqrecrcl = 3.14 * R * R;
+        printf("%.2f is circle length\n%.2f is circle square", lnghtcrcl, sqrecrcl);
+    }
+
+
+    return 0;
+
+}
