@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main() {
+    int f1=1, f2=1, f, N;
+    f = f2;
+    printf("Input your number:\n");
+    scanf("%d", &N);
+    while (f<N || f>N)
+    {
+        f=f1+f2;
+        f1=f2;
+        f2=f;
+    }
+    printf("Previous %d\n", f1);
+    printf("Next one %d\n", f1+f2);
+}
