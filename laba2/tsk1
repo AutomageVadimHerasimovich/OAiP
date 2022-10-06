@@ -1,0 +1,11 @@
+#include <stdio.h>
+int main()
+{
+    for(int a = 2; a <= 9; a++) {
+        int b = 11 - a;
+        int k = 10 * a + b;
+        if(k + 27 == (10 * b + a))
+            printf("Число: %d\n", k);
+    }
+    return 0;
+}
