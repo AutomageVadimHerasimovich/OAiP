@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+#define MAX 100
+
+int main(void) {
+    int a[MAX];
+    int N, K;
+    int i, j;
+    srand(time(NULL));
+    do {
+        printf("%s", "Enter array length : ");
+        while(scanf("%d",&N)!=1 || getchar()!='\n') {
+            printf("Invalid input. Try again : ");
+            fflush(stdin);
+        }
+        if ((N < 0) || (N > MAX)) printf("%s\n", "Invalid input. Try again : ");
+        printf("%s", "Enter K : ");
+        while(scanf("%d",&K)!=1 || getchar()!='\n') {
+            printf("Invalid input. Try again : ");
+            fflush(stdin);
+        }
+        if ((K < 0) || (K > MAX)) printf("%s\n", "Invalid input");
+    } while ((N < 0) || (N > MAX));
+    printf("%s\n", "Array:");
+    for (i = 0; i < N; i++) {
+        a[i] = rand() % 1000;
+        printf("%d%c", a[i], ' ');
+    }
+    printf("\n");
+    int Z = 0, y = 0;
+    int b[100];
+     for(j=0;j<N;j++){
+         Z++;
+         y++;
+         b[Z] = a[j];
+         if(y % K == 0){
+             Z++;
+             b[Z] = 0;
+         }
+
+
+    }
+     printf("\nArray after 0 insert:\n");
+     for (i = 1; i <= Z; i++) {
+         printf("%d ", b[i]);
+        }
+        printf("\n");
+        return 0;
+    }
