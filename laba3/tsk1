@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+const int N = 100;
+int main()
+{
+    int i, max, C, k, x = 0, arr[N];
+    long int mult = 1;
+    srand(time(NULL));
+    for(int i = 0; i < N; i++)
+    {
+        arr[i] = rand()%N;
+    }
+    printf("\n");
+    printf("Input number C : ");
+    while(scanf("%d",&C)!=1 || getchar()!='\n') {
+        printf("Invalid input. Try again : ");
+        fflush(stdin);
+    }
+    max = arr[0];
+    for(i = 0; i < N; i++){
+        if(arr[i] > max){
+            max = arr[i];
+            k = i;
+        }
+        if(arr[i] > C)
+            x++;
+    }
+    for(i = k + 1; i < N; i++)
+        mult *= arr[i];
+    printf("Number elements more C is %d\nProizvedenie elements after maximum is %ld\n", x, mult);
+    return 0;
+}
