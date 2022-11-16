@@ -1,0 +1,93 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+#define MAX 100
+int p(int p){
+    while (scanf("%d", &p) != 1 || getchar() != '\n') {
+        printf("Invalid input. Try again : ");
+        fflush(stdin);
+    }
+    return p;
+}
+int check(int n){
+    while (scanf("%d", &n) != 1 || getchar() != '\n' || n > 1 || n < 0) {
+        printf("Invalid input. Try again : ");
+        fflush(stdin);
+    }
+    return n;
+}
+int checkArray(int m) {
+    while (scanf("%d", &m) != 1 || getchar() != '\n' || m > MAX || m < 1) {
+        printf("Invalid input. Try again : ");
+        fflush(stdin);
+    }
+    return m;
+}
+int main () {
+    int a[MAX][MAX], colMAX=100, rowMAX=100, with0=101, col, row, yn1, yn2, bool, Fnum;
+    srand(time(NULL));
+    printf("Do you want to custom array size?\n");
+    printf("YES-1;\nUSE Array[100][100]-0\n");
+    yn1 = check(yn1);
+    if (yn1 == 1) {
+        while (1) {
+            printf("Input array size\n");
+            printf("Row's : ");
+            rowMAX = checkArray(rowMAX);
+            printf("Col's : ");
+            colMAX = checkArray(colMAX);
+            if (rowMAX && colMAX && rowMAX < 101 && colMAX < 101)
+                break;
+        }
+    }
+    printf("Do you want to use random?\n");
+    printf("YES-1; NO-0\n");
+    yn2 = check(yn2);
+    if (yn2 == 1) {
+        printf("Array is :\n");
+        for (col = 0; col < rowMAX; col++) {
+            for (row = 0; row < colMAX; row++) {
+                a[col][row] = rand() % 10;
+                printf("%4d  ", a[col][row]);
+            }
+            printf("\n");
+        }
+    } else {
+        printf("Print your array : \n");
+        for (col = 0; col < colMAX; col++) {
+            for (int row = 0; row < rowMAX; row++) {
+                printf("a[%d][%d] = ", col, row);
+                a[col][row] = p(a[col][row]);
+            }
+            printf("\n");
+        }
+        printf("Array is :\n");
+        for (col = 0; col < colMAX; col++) {
+            for (row = 0; row < rowMAX; row++) {
+                printf("%4d  ", a[col][row]);
+            }
+            printf("\n");
+        }
+    }
+    for (row = 0; row < colMAX; row++) {
+        for (col = 0; col < rowMAX; col++) {
+                if (a[row][col]==0 && bool==0) {
+                    with0=row;
+                    bool=1;
+                    Fnum=a[with0][0];
+                    printf("\nRow with 0 = %d\n", with0+1);
+                }
+            }
+        }
+    if (with0==101){
+        printf("\nRow with 0 not found\n");
+    }else{
+        printf("\nArray after correct is :\n");
+        for (row = 0; row < rowMAX; row++) {
+        for (col = 0; col < colMAX; col++) {
+                printf("%6d", a[row][col]-Fnum);
+            }
+            printf("\n");
+        }
+    }
+}
