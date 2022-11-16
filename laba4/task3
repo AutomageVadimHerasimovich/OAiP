@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+#define MAX 100
+int p(int p){
+    while (scanf("%d", &p) != 1 || getchar() != '\n') {
+        printf("Invalid input. Try again : ");
+        fflush(stdin);
+    }
+    return p;
+}
+int check(int n){
+    while (scanf("%d", &n) != 1 || getchar() != '\n' || n > 1 || n < 0) {
+        printf("Invalid input. Try again : ");
+        fflush(stdin);
+    }
+    return n;
+}
+int checkArray(int m) {
+    while (scanf("%d", &m) != 1 || getchar() != '\n' || m > MAX || m < 1) {
+        printf("Invalid input. Try again : ");
+        fflush(stdin);
+    }
+    return m;
+}
+int main () {
+    int a[MAX][MAX], N=MAX, col, row, yn1, yn2, min=101;
+    srand(time(NULL));
+    printf("Do you want to custom array size?\n");
+    printf("YES-1;\nUSE Array[100][100]-0\n");
+    yn1 = check(yn1);
+    if (yn1 == 1) {
+        while (1) {
+            printf("Input array size :\n");
+            N = checkArray(N);
+            break;
+        }
+    }
+    printf("Do you want to use random?\n");
+    printf("YES-1; NO-0\n");
+    yn2 = check(yn2);
+    if (yn2 == 1) {
+        printf("Array is :\n");
+        for (col = 0; col < N; col++) {
+            for (row = 0; row < N; row++) {
+                a[col][row] = rand() % 201-100;
+
+                printf("%4d\t", a[col][row]);
+            }
+            printf("\n");
+        }
+    } else {
+        printf("Print your array : \n");
+        for (col = 0; col < N; col++) {
+            for (int row = 0; row < N; row++) {
+                printf("a[%d][%d] = ", col, row);
+                a[col][row] = p(a[col][row]);
+            }
+            printf("\n");
+        }
+    }
+        for (row = 0; row < N; row++) {
+            for (col = 0; col < N; col++) {
+                if (row+col<N-1 || row<col){}
+                else {
+                    if (a[row][col]%2==0 && a[row][col]<min){
+                        min=a[row][col];
+                    }
+                    if (a[row][col]%2==0 && a[row][col]<min){
+                        min=a[row][col];
+                    }
+                }
+            }
+        }
+        if (min==101){
+            printf("Even number not found");
+        }
+        else
+            printf("\nMinimum even number : %d", min);
+}
