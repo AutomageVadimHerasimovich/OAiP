@@ -306,7 +306,7 @@ void vybor_sort(int** matr, int n, int m){
             count = 0;
             for (int z = min; z < maks; z++) {
                 int temp = 0;
-                for (int i = 0; i < m; i++) {
+                for (int i = 0; i < n; i++) {
                     if (matr[i][j] == z) {
                         temp++;
                     }
